@@ -1,0 +1,19 @@
+[{
+    "name": "Seed",
+    "isMale": true,
+    "age": 19,
+    "description": "Lorem ipsum"
+},
+{
+    "name": "Nensi",
+    "isMale": false,
+    "age": 19,
+    "description": "Lorem ipsum"
+},
+{
+    "name": "John",
+    "isMale": true,
+    "age": 19,
+    "description": "Lorem ipsum"
+}
+]

@@ -44,4 +44,4 @@ p1.then(
     console.log(test);
   })
 
-fetch("../user.js")
+fetch("../")
