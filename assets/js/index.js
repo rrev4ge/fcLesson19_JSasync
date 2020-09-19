@@ -44,4 +44,25 @@ p1.then(
     console.log(test);
   })
 
-fetch("../")
+fetch("../../user.json")
+  .then((res) => res.json())
+  .then((users) => {
+    console.log(users)
+    const root = document.getElementById("root");
+    const ul = document.createElement("ul");
+    root.append(ul);
+
+    for (const user of users) {
+        const {
+          name,
+          isMale,
+          age,
+          description
+        } = user
+        console.log(name);
+        const li = document.createElement("ul");
+        li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description))
+        ul.append(li)
+      }
+  })
+  .catch(console.error);
