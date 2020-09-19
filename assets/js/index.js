@@ -3,18 +3,29 @@
 const btn = document.getElementById("btn")
 
 btn.addEventListener("click", (event) => {
-    alert("Alert")
+  alert("Alert")
 })
 
 
-// function logNum() {
-//   for (let i = 1; i <= 20; i++) {
-//     setTimeout(()=>{
-//       console.log(i);
-//       setTimeout()
-//     },1000);
-// }
-// }
+function logNum(i = 1) {
+    if (i === 21) {
+      return;
+    }
+    console.log(i);
+    i++;
+    setTimeout(logNum(i), 100000000);
+}
+
+//logNum();
+
+let timerId;
+function logNum () {
+    timerId = setTimeout(function() {
+      console.log(i);
+    }, 1000);
+};
+    clearTimeout(timerId);
+};
 
 // setInterval(()=>{
 //   i++;
@@ -23,7 +34,7 @@ btn.addEventListener("click", (event) => {
 // clearInterval(setIi);
 
 
-const p1  = new Promise((resolve, reject) => {
+const p1 = new Promise((resolve, reject) => {
   resolve("RESOLVED PROMISE");
 });
 
@@ -33,36 +44,38 @@ p1.then(
   (string) => {
     console.log("then result: ", string);
     return new Promise((resolve, reject) => {
-    resolve(string);
-});
+      resolve(string);
+    });
   },
   (err) => {
     console.error(err);
   })
   .then(
     (test) => {
-    console.log(test);
-  })
+      console.log(test);
+    })
 
 fetch("../../user.json")
   .then((res) => res.json())
-  .then((users) => {
-    console.log(users)
-    const root = document.getElementById("root");
-    const ul = document.createElement("ul");
-    root.append(ul);
-
-    for (const user of users) {
-        const {
-          name,
-          isMale,
-          age,
-          description
-        } = user
-        console.log(name);
-        const li = document.createElement("ul");
-        li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description))
-        ul.append(li)
-      }
-  })
+  .then((users) => createList(users))
   .catch(console.error);
+
+
+function createList(users) {
+  const root = document.getElementById("root");
+  const ul = document.createElement("ul");
+  let liArray = [];
+  for (const user of users) {
+    const {
+      name,
+      isMale,
+      age,
+      description
+    } = user
+    const li = document.createElement("ul");
+    li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description))
+    liArray.push(li);
+  }
+  ul.append(...liArray);
+  root.append(ul);
+}  
