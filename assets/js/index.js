@@ -6,8 +6,8 @@ btn.addEventListener("click", (event) => {
   alert("Alert")
 })
 
-logNumTimeout();
-logNumInterval();
+
+
 
 fetch("../../user.json")
   .then((res) => res.json())
@@ -17,10 +17,10 @@ fetch("../../user.json")
 function logNumTimeout(num = 1) {
     if(num <= 20) {  
       console.log(num);     
-      setTimeout(logNumTimeout, 100, num + 1);
+      setTimeout(logNumTimeout(num + 1), 100, );
     }
 }
-
+logNumTimeout();
 function logNumInterval(num = 1) {
     let timerId = setInterval(function() {
       console.log(num);
@@ -30,7 +30,7 @@ function logNumInterval(num = 1) {
       num++;
     }, 100);
 }
-
+logNumInterval();
 function createList(users) {
   const root = document.getElementById("root");
   const ul = document.createElement("ul");
