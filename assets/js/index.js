@@ -37,7 +37,7 @@ function createList(users) {
   const list = users.map(
     ({name, isMale, age, description})=>{
       const li = document.createElement("ul");
-      li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description))
+      li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description));
       return li;
     }
   )
