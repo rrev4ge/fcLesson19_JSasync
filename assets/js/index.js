@@ -1,13 +1,11 @@
 "use strict";
 
+const root = document.getElementById("root");
 const btn = document.getElementById("btn")
 
 btn.addEventListener("click", (event) => {
   alert("Alert")
 })
-
-
-
 
 fetch("../../user.json")
   .then((res) => res.json())
@@ -32,7 +30,7 @@ function logNumInterval(num = 1) {
 }
 logNumInterval();
 function createList(users) {
-  const root = document.getElementById("root");
+  
   const ul = document.createElement("ul");
   const list = users.map(createListElement);
   ul.append(...list);
@@ -44,3 +42,6 @@ function createListElement({name, isMale, age, description}) {
   li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description));
   return li;
 }
+
+
+

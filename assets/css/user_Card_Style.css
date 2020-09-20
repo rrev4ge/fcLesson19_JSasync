@@ -1,0 +1,35 @@
+
+ 
+#root {    
+   display: flex;
+   height: 100vh;
+   justify-content: center;
+   align-items: center;
+   justify-content: space-evenly;
+
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+
+}
+
+li {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 0 5px black;
+    margin: 5px;
+    padding: 5px;
+    flex-wrap: wrap;
+}
+
+.profileImg {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+}
