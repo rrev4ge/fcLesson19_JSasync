@@ -34,13 +34,13 @@ function logNumInterval(num = 1) {
 function createList(users) {
   const root = document.getElementById("root");
   const ul = document.createElement("ul");
-  const list = users.map(
-    ({name, isMale, age, description})=>{
-      const li = document.createElement("ul");
-      li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description));
-      return li;
-    }
-  )
+  const list = users.map(createListElement);
   ul.append(...list);
   root.append(ul);
 }  
+
+function createListElement({name, isMale, age, description}) {
+  const li = document.createElement("ul");
+  li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description));
+  return li;
+}
