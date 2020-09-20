@@ -34,18 +34,13 @@ function logNumInterval(num = 1) {
 function createList(users) {
   const root = document.getElementById("root");
   const ul = document.createElement("ul");
-  let liArray = [];
-  for (const user of users) {
-    const {
-      name,
-      isMale,
-      age,
-      description
-    } = user
-    const li = document.createElement("ul");
-    li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description))
-    liArray.push(li);
-  }
-  ul.append(...liArray);
+  const list = users.map(
+    ({name, isMale, age, description})=>{
+      const li = document.createElement("ul");
+      li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description))
+      return li;
+    }
+  )
+  ul.append(...list);
   root.append(ul);
 }  
