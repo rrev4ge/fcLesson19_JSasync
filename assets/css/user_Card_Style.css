@@ -1,54 +1,89 @@
+                            body {
+                                display: flex;
+                                background-color: #f0f1f6;
+                                height: 100vh;
+                            }
+                            
+                            #root {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                flex-wrap: wrap;
+                            }
+                            
+                            .usersList {
+                                display: flex;
+                                flex-wrap: wrap;
+                                align-items: center;
+                                justify-content: center;
+                                flex-direction: row;
+                            }
+                            
+                            .userCard {
+                                position: relative;
+                                display: flex;
+                                width: 250px;
+                                height: 300px;
+                                align-items: center;
+                                flex-direction: column;
+                                justify-content: space-evenly;
+                                box-shadow: 0 0 10px #f0f1f6;
+                                background-color: #ffffff;
+                                margin: 5px;
+                                padding: 5px;
+                                flex-wrap: wrap;
+                                border-radius: 5px;
+                                z-index: 1;
+                            }
 
- 
-#root {    
-   display: flex;
-   height: 100vh;
-   justify-content: center;
-   align-items: center;
-   justify-content: space-evenly;
+                            .profileImg {
+                                position: absolute;
+                                top: 25px;
+                                height: 100px;
+                                width: 100px;
+                                border-radius: 50%;
+                                object-fit: fill;
+                                z-index: 3;
+                                
+                            }
 
-}
-
-ul {
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-
-}
-
-li {
-    width: 10vw;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
-    box-shadow: 0 0 5px black;
-    margin: 5px;
-    padding: 5px;
-    flex-wrap: wrap;
-    border-radius: 5px;
-}
-
-.profileImg {
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-.profileName{
-
-}
-
-.profilePosition{
-    color: brown;
-}
-
-.profileBtn {
-    height: 25px;
-    width: 70px;
-    border: 1px;
-    border-radius: 5px;
-    background-color: aqua;
-    //object-fit: cover;
-}
+                            .profileImgBackground{
+                                position: relative;
+                                top: 5px;
+                                height: 100px;
+                                width: 100px;
+                                background-size: auto;
+                                background-position: center bottom;
+                                background-repeat: no-repeat;
+                                filter: blur(10px);
+                                border-radius: 50%;
+                                z-index: 2;
+                            }
+                            
+                            
+                            .profileName {
+                                width: 200px;
+                                font-size: large;
+                                text-align: center;
+                                font-weight: bolder;
+                                
+                            }
+                            
+                            .profilePosition {
+                                width: 200px;
+                                text-align: center;
+                                color: #98999d;
+                            }
+                            
+                            .profileBtn {
+                                margin: 5px;
+                                height: 50px;
+                                width: 125px;
+                                border: 1px;
+                                border-radius: 5px;
+                                background-color: #748eff;
+                                color: white;
+                                font-size: large;
+                                font-weight: bolder;
+                                box-shadow: 0 5px 15px #748eff;
+                            }
