@@ -15,21 +15,22 @@ btn.addEventListener("click", (event) => {
 // Home work tasks:
 
 logNumTimeout();
-delay(5000).then((value) => console.log(value))
 
-function logNumTimeout(num = 1) {  
-      setTimeout((() => {
-        if(num <= 20) {  
-          console.log(num);
-          logNumTimeout(num + 1);
-        }
-      }), 100 );
+delay(5000).then(() => alert("hello"));
+
+function logNumTimeout(num = 1) {
+  setTimeout((() => {
+    if (num <= 20) {
+      console.log(num);
+      logNumTimeout(num + 1);
+    }
+  }), 100);
 }
 
 function delay(ms) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
-      resolve ("Hello!")
+      resolve();
     }, ms);
   });
   return promise;
@@ -40,13 +41,13 @@ function delay(ms) {
 setTimeout(logNumInterval, 6000);
 
 function logNumInterval(num = 1) {
-    let timerId = setInterval(function() {
-      console.log(num);
-      if (num === 20) {
-        clearInterval(timerId);
-      }
-      num++;
-    }, 100);
+  let timerId = setInterval(function () {
+    console.log(num);
+    if (num === 20) {
+      clearInterval(timerId);
+    }
+    num++;
+  }, 100);
 }
 
 fetch("../assets/data/user.json")
@@ -60,9 +61,9 @@ function createList(users) {
   ul.append(...list);
   root.append(ul);
   return ul;
-}  
+}
 
-function createListElement({name, isMale, age, description}) {
+function createListElement({ name, isMale, age, description }) {
   const li = document.createElement("ul");
   li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description));
   return li;
