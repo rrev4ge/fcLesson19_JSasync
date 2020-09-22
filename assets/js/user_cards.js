@@ -9,7 +9,7 @@ fetch("http://192.168.1.148:3000/user.json")
     .then((res) => res.json())
     .then((users) => createList(users))
     .catch(console.error)
-    .then(fetch("../assets/data/users.json")
+    .then(fetch("../../assets/data/users.json")
         .then((res) => res.json())
         .then((users) => addListElements(users))
         .catch(console.error))
@@ -43,7 +43,7 @@ function createProfileLogo(profilePicture) {
     img.setAttribute("src", profilePicture);
     imgBg.setAttribute("src", profilePicture);
     img.onerror = () => {
-        img.setAttribute("src", "../assets/images/user_logo.png");
+        img.setAttribute("src", "../../assets/images/user_logo.png");
         imgBg.setAttribute("src", img.getAttribute("src"));
     };
     return [imgBg, img];

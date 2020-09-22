@@ -51,7 +51,7 @@ function logNumInterval(num = 1) {
   }, 100);
 }
 
-fetch("../assets/data/user.json")
+fetch("../../assets/data/user.json")
   .then((res) => res.json())
   .then((users) => createList(users))
   .catch(console.error);
