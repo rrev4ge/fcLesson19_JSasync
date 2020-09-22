@@ -14,16 +14,20 @@ btn.addEventListener("click", (event) => {
 
 // Home work tasks:
 
-function logNumTimeout(num = 1) {
-    if(num <= 20) {  
-      console.log(num);     
-      setTimeout(logNumTimeout(num + 1), 100, );
-    }
-}
-
 logNumTimeout();
 
+function logNumTimeout(num = 1) {  
+      setTimeout((() => {
+        if(num <= 20) {  
+          console.log(num);
+          logNumTimeout(num + 1);
+        }
+      }), 100 );
+}
+
 // Class room tasks:
+
+setTimeout(logNumInterval, 2100);
 
 function logNumInterval(num = 1) {
     let timerId = setInterval(function() {
@@ -34,8 +38,6 @@ function logNumInterval(num = 1) {
       num++;
     }, 100);
 }
-
-logNumInterval();
 
 fetch("../assets/data/user.json")
   .then((res) => res.json())
