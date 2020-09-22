@@ -1,4 +1,5 @@
 "use strict";
+
 const root = document.getElementById("root");
 const ul = document.createElement("ul");
 ul.classList.add("usersList");
@@ -43,9 +44,11 @@ function createProfileLogo(profilePicture) {
     imgBg.classList.add("profileImgBackground");
     img.classList.add("profileImg");
     img.setAttribute("src", profilePicture);
-    img.onerror = () => img.setAttribute("src", "../assets/images/user_logo.png");
     imgBg.setAttribute("src", profilePicture);
-    imgBg.onerror = () => img.setAttribute("src", "../assets/images/user_logo.png");
+    img.onerror = () => {
+        img.setAttribute("src", "../assets/images/user_logo.png");
+        imgBg.setAttribute("src", img.getAttribute("src"));
+    };
     return [imgBg, img];
 }
 
@@ -60,7 +63,7 @@ function createProfilePosition() {
     const h3 = document.createElement("h3");
     fetch("../assets/data/propositions.json")
         .then((res) => res.json())
-        .then((proposition) => h3.textContent = random(proposition))
+        .then((proposition) => h3.textContent = getRandomValue(proposition))
         .catch(console.error);
     h3.classList.add("profilePosition");
     return h3;
@@ -73,6 +76,6 @@ function createProfileBtn() {
     return btn;
 }
 
-function random(arr) {
+function getRandomValue(arr) {
     return arr[Math.floor(Math.random() * arr.length)];
 }
