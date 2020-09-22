@@ -15,13 +15,10 @@ fetch("http://192.168.1.148:3000/user.json")
         .catch(console.error))
     .catch(console.error);
 
-
-
 function addListElements(users) {
     const list = users.map(createListElement).filter(element => element);
     ul.append(...list);
 }
-
 
 function createListElement({ id, firstName, lastName, profilePicture }) {
     if (!firstName && !lastName) {
@@ -61,9 +58,9 @@ function createProfileName(firstName, lastName) {
 
 function createProfilePosition() {
     const h3 = document.createElement("h3");
-    fetch("../assets/data/propositions.json")
+    fetch("../assets/data/positions.json")
         .then((res) => res.json())
-        .then((proposition) => h3.textContent = getRandomValue(proposition))
+        .then((position) => h3.textContent = getRandomValue(position))
         .catch(console.error);
     h3.classList.add("profilePosition");
     return h3;
