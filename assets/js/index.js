@@ -4,6 +4,7 @@ const root = document.getElementById("root");
 const btn = document.getElementById("btn");
 const userList = document.createElement("a");
 userList.href = "../../user_cards.html";
+userList.setAttribute("target","_blank");
 userList.textContent = "User list";
 root.append(userList);
 
