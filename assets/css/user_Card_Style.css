@@ -1,24 +1,21 @@
 body {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     background-color: #f0f1f6;
     height: 100vh;
+    flex-wrap: wrap;
 }
 
 .usersList, .userCard {
     display: flex;
     align-items: center;
-
 }
 
 .usersList {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    
-    
 }
 
 .userCard {

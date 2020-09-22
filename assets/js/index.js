@@ -18,7 +18,9 @@ function logNumTimeout(num = 1) {
       setTimeout(logNumTimeout(num + 1), 100, );
     }
 }
+
 logNumTimeout();
+
 function logNumInterval(num = 1) {
     let timerId = setInterval(function() {
       console.log(num);
@@ -28,7 +30,9 @@ function logNumInterval(num = 1) {
       num++;
     }, 100);
 }
+
 logNumInterval();
+
 function createList(users) {
   
   const ul = document.createElement("ul");
