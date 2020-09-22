@@ -15,6 +15,7 @@ btn.addEventListener("click", (event) => {
 // Home work tasks:
 
 logNumTimeout();
+delay(5000).then((value) => console.log(value))
 
 function logNumTimeout(num = 1) {  
       setTimeout((() => {
@@ -25,9 +26,18 @@ function logNumTimeout(num = 1) {
       }), 100 );
 }
 
+function delay(ms) {
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve ("Hello!")
+    }, ms);
+  });
+  return promise;
+}
+
 // Class room tasks:
 
-setTimeout(logNumInterval, 2100);
+setTimeout(logNumInterval, 6000);
 
 function logNumInterval(num = 1) {
     let timerId = setInterval(function() {
@@ -57,6 +67,7 @@ function createListElement({name, isMale, age, description}) {
   li.append(document.createTextNode(name + " " + age + " " + isMale + " " + description));
   return li;
 }
+
 
 
 
