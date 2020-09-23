@@ -1,23 +1,29 @@
 "use strict";
 
 const root = document.getElementById("root");
-const ul = document.createElement("ul");
-ul.classList.add("usersList");
-root.append(ul);
+const userList = document.createElement("ul");
+userList.classList.add("usersList");
+root.append(userList);
+
 
 fetch("http://192.168.1.148:3000/user.json")
     .then((res) => res.json())
-    .then((users) => createList(users))
-    .catch(console.error)
-    .then(fetch("../../assets/data/users.json")
+    .then((users) => addListElements(users))
+    .catch(defaultFetch());
+
+function defaultFetch(defaultLocation = "../../assets/data/users.json") {
+    fetch(defaultLocation)
         .then((res) => res.json())
         .then((users) => addListElements(users))
-        .catch(console.error))
-    .catch(console.error);
+        .catch(console.error);
+
+}
+
+
 
 function addListElements(users) {
-    const list = users.map(createListElement).filter(element => element);
-    ul.append(...list);
+    const listItems = users.map(createListElement).filter(element => element);
+    userList.append(...listItems);
 }
 
 function createListElement({ id, firstName, lastName, profilePicture }) {
