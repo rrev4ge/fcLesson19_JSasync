@@ -6,18 +6,13 @@ userList.classList.add("usersList");
 root.append(userList);
 
 
-fetch("http://192.168.1.148:3000/user.json")
+
+
+
+fetch("../../assets/data/users.json")
     .then((res) => res.json())
     .then((users) => addListElements(users))
     .catch(defaultFetch());
-
-function defaultFetch(defaultLocation = "../../assets/data/users.json") {
-    fetch(defaultLocation)
-        .then((res) => res.json())
-        .then((users) => addListElements(users))
-        .catch(console.error);
-
-}
 
 
 
