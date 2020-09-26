@@ -12,7 +12,7 @@ fetch("http://192.168.1.148:3000/user.json")
   function createList(users) {
     const ul = document.createElement("ul");
     const list = users.map(createListElement);
-    ul.append(...list);
+    ul.append(...list.fi);
     root.append(ul);
   }  
   
