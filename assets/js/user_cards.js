@@ -1,20 +1,49 @@
 "use strict";
 
+const body = document.querySelector("body");
 const root = document.getElementById("root");
 const userList = document.createElement("ul");
 userList.classList.add("usersList");
-root.append(userList);
+const header = document.createElement("div");
+header.classList.add("header");
+root.append( header, userList);
 
 
 
 
 
-fetch("../../assets/data/users.json")
-    .then((res) => res.json())
-    .then((users) => addListElements(users))
-    .catch(console.error);
+fetchFunc("../../assets/data/users.json")
+.then((users) => addListElements(users)).catch(console.error);
+
+fetchFunc("http://192.168.1.148:3000/auth")
+.then((user) => addAuthUser(user)).catch(console.error);
 
 
+function fetchFunc(url) {
+    return fetch(url)
+        .then((res) => res.json());
+}
+
+
+function addAuthUser(param) {
+
+    const {
+    id,
+    firstName,
+    lastName,
+    position,
+    profilePicture,
+    } = param;
+
+
+    const logoImg = createProfileLogo(profilePicture);
+    const userFullName = createProfileName(firstName, lastName);
+    const userPosition = position;
+    header.append( userFullName, userPosition, logoImg[1],)
+
+    console.log(firstName);
+    
+}
 
 function addListElements(users) {
     const listItems = users.map(createListElement).filter(element => element);

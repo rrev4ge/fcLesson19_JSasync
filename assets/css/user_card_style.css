@@ -1,11 +1,27 @@
+
+.header {
+    border-color: #cacbcf;
+    position: sticky;
+    top: 0;
+    background-color: #ffffff;
+    height: 5vh;
+    /* width: 100vw; */
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f1f6;
+    background-color: #cacbcf;
     height: 100vh;
     flex-wrap: wrap;
 }
+
 
 .usersList, .userCard {
     display: flex;
@@ -40,6 +56,12 @@ body {
     border-radius: 50%;
     object-fit: fill;
     z-index: 3;
+}
+
+.header > img {
+    position: unset;
+    height: 5vh;
+    width: 5vh;
 }
 
 .profileImgBackground {
