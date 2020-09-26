@@ -28,6 +28,7 @@ function logNumTimeout(num = 1) {
   }), 100);
 }
 
+
 function delay(ms) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {

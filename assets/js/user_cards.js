@@ -12,7 +12,7 @@ root.append(userList);
 fetch("../../assets/data/users.json")
     .then((res) => res.json())
     .then((users) => addListElements(users))
-    .catch(defaultFetch());
+    .catch(console.error);
 
 
 
@@ -28,11 +28,11 @@ function createListElement({ id, firstName, lastName, profilePicture }) {
     const li = document.createElement("li");
     li.classList.add("userCard");
     li.dataset.id = id;
-    const img = createProfileLogo(profilePicture);
-    const h2 = createProfileName(firstName, lastName);
-    const h3 = createProfilePosition();
-    const btn = createProfileBtn();
-    li.append(...img, h2, h3, btn);
+    const images = createProfileLogo(profilePicture);
+    const userFullName = createProfileName(firstName, lastName);
+    const userPosition = createProfilePosition();
+    const connectBtn = createProfileBtn();
+    li.append(...images, userFullName, userPosition, connectBtn);
     return li;
 }
 
