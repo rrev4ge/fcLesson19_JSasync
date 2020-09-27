@@ -1,27 +1,33 @@
+body {
+    background-color: #cacbcf;
+}
 
-.header {
-    border-color: #cacbcf;
-    position: sticky;
+
+#root {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+    height: 100vh;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.header { 
+    position: fixed;
     top: 0;
     background-color: #ffffff;
     height: 5vh;
-    /* width: 100vw; */
+    width: 99vw;
+    border: 1vh solid #cacbcf;
+    border-radius: 1vw;
     z-index: 2;
     display: flex;
     align-items: center;
     flex-direction: row;
     justify-content: flex-end;
 }
-
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #cacbcf;
-    height: 100vh;
-    flex-wrap: wrap;
-}
-
 
 .usersList, .userCard {
     display: flex;

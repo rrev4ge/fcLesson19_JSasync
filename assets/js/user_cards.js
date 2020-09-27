@@ -12,16 +12,22 @@ root.append( header, userList);
 
 
 
-fetchFunc("../../assets/data/users.json")
-.then((users) => addListElements(users)).catch(console.error);
+// fetchFunc("../../assets/data/users.json")
+// .then((users) => addListElements(users)).catch(console.error);
+// fetchFunc("../../assets/data/auth.json")
+// .then((user) => addAuthUser(user)).catch(console.error);
 
-fetchFunc("http://192.168.1.148:3000/auth")
-.then((user) => addAuthUser(user)).catch(console.error);
+fetchFunc("../../assets/data/users.json", addListElements)
+fetchFunc("../../assets/data/auth.json", addAuthUser)
 
-
-function fetchFunc(url) {
-    return fetch(url)
-        .then((res) => res.json());
+async function fetchFunc(url, func) {
+    try {
+        const response = await fetch(url);
+        const data = await response.json();
+        func(data);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 
@@ -39,9 +45,7 @@ function addAuthUser(param) {
     const logoImg = createProfileLogo(profilePicture);
     const userFullName = createProfileName(firstName, lastName);
     const userPosition = position;
-    header.append( userFullName, userPosition, logoImg[1],)
-
-    console.log(firstName);
+    header.append( userFullName, userPosition, logoImg[1],);
     
 }
 
